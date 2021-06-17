@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Crud;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Lib\Crud\Contact;
 
 class ContactController extends Controller
 {
@@ -12,7 +13,12 @@ class ContactController extends Controller
     }
     public function store(Request $request){
         try{
-            
-        }cactch(Exception $e){}
+            $data = $request->all();
+            // dd($data);
+            $result = Contact::get($data);
+            return redirect('contact');
+        }catch(\Exception $e){
+
+        }
     }
 }
